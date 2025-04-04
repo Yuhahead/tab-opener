@@ -10,8 +10,8 @@ window.addEventListener('DOMContentLoaded', () => {
   const urls = decodeURIComponent(urlsParam).split(',');
 
   for (const url of urls) {
-    chrome.tabs.create({ url });
+    window.open(url, '_blank');
   }
 
-  window.close();
+  document.body.innerHTML = '<h3>タブを開いています...</h3>';
 });
