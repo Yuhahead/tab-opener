@@ -13,5 +13,6 @@ window.addEventListener('DOMContentLoaded', () => {
     window.open(url, '_blank');
   }
 
-  document.body.innerHTML = '<h3>タブを開いています...</h3>';
+  // 自分自身を閉じる（ユーザー操作で開いた場合に限り有効）
+  window.close();
 });
