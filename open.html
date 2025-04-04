@@ -1,12 +1,48 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <title>Open Tabs</title>
+  <meta charset="UTF-8" />
+  <title>タブを開いています...</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 20px;
+    }
+    h3 {
+      color: green;
+    }
+    button {
+      padding: 6px 12px;
+      font-size: 14px;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
-  <h3>以下のボタンをクリックしてタブを開いてください</h3>
-  <button id="openTabs">タブを開く</button>
-  <script src="open.js"></script>
+  <h3>✅ タブを開きました！</h3>
+  <p>この中継ページはブラウザの制限により <strong>自動では閉じられません。</strong></p>
+  <p>
+    <button onclick="tryClose()">このタブを閉じる</button>
+  </p>
+  <p style="font-size: 13px; color: gray;">
+    ※閉じられない場合は、右上の「×」をクリックしてください。
+  </p>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const urlsParam = params.get('urls');
+
+    if (urlsParam) {
+      const urls = decodeURIComponent(urlsParam).split(',');
+      for (const url of urls) {
+        window.open(url, '_blank');
+      }
+    }
+
+    function tryClose() {
+      window.close();
+    }
+  </script>
 </body>
 </html>
