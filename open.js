@@ -9,9 +9,10 @@ window.addEventListener('DOMContentLoaded', () => {
 
   const urls = decodeURIComponent(urlsParam).split(',');
 
-  for (const url of urls) {
-    window.open(url, '_blank');
-  }
-
-  document.body.innerHTML = '<h3>タブを開いています...</h3>';
+  const openButton = document.getElementById('openTabs');
+  openButton.addEventListener('click', () => {
+    for (const url of urls) {
+      window.open(url, '_blank');
+    }
+  });
 });
