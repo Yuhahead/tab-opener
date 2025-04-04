@@ -13,6 +13,9 @@ window.addEventListener('DOMContentLoaded', () => {
     window.open(url, '_blank');
   }
 
-  // 自分自身を閉じる（ユーザー操作で開いた場合に限り有効）
-  window.close();
+  // タブを開いた後に「このタブを閉じる」ボタンを表示
+  document.body.innerHTML = `
+    <h3>タブを開きました ✅</h3>
+    <p><button onclick="window.close()">このタブを閉じる</button></p>
+  `;
 });
